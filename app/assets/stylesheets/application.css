@@ -12,3 +12,37 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: sans-serif;
+  background-image: url('pizza.png');
+  margin: 0 auto;
+  width: 600px;
+}
+
+h1 {
+  font-family: 'Lucida Casual', 'Comic Sans MS';
+  font-size: 100px;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+#slider {
+  width: 500px;
+}
+
+input#guests {
+  margin-bottom: 10px;
+}
+
+li {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#guest-number {
+  font-size: 20px;
+}
