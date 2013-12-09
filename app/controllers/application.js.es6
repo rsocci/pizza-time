@@ -4,12 +4,23 @@ export default Ember.Controller.extend({
   }.property('guestCount'),
 
   veganAmount: function() {
-    return Math.ceil(this.get('numberPizzas') * 0.1);
-  }.property('numberPizzas'),
+    if (this.get('guestCount') < 6) {
+      return 0;
+    }
+    else if (this.get('guestCount') < 9) {
+      return 1;
+    } else {
+      return Math.ceil(this.get('numberPizzas') * 0.1);
+    }
+  }.property('numberPizzas', 'guestCount'),
 
   cheeseAmount: function() {
-    return Math.ceil(this.get('numberPizzas') * 0.5);
-  }.property('numberPizzas'),
+    if (this.get('guestCount') < 9 && this.get('guestCount') > 0) {
+      return 1;
+    } else {
+      return Math.ceil(this.get('numberPizzas') * 0.5);
+    }
+  }.property('numberPizzas', 'guestCount'),
 
   pepperoniAmount: function() {
     var pepperoniAmount = this.get('numberPizzas') - this.get('veganAmount') - this.get('cheeseAmount');
@@ -25,14 +36,18 @@ export default Ember.Controller.extend({
   }.property('guestCount'),
 
   colaAmount: function() {
-    return Math.ceil(this.get('numberSodas') * 0.4);
-  }.property('numberSodas'),
+    if (this.get('guestCount') < 8 && this.get('guestCount') > 0) {
+      return 1;
+    } else {
+      return Math.round(this.get('numberSodas') * 0.4);
+    }
+  }.property('numberSodas', 'guestCount'),
 
   dietColaAmount: function() {
-    return Math.ceil(this.get('numberSodas') * 0.4);
+    return Math.round(this.get('numberSodas') * 0.4);
   }.property('numberSodas'),
 
   spriteAmount: function() {
-    return Math.ceil(this.get('numberSodas') * 0.2);
+    return Math.round(this.get('numberSodas') * 0.2);
   }.property('numberSodas'),
 });
