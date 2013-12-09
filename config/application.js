@@ -5,7 +5,7 @@
 //= require_self
 //= require adapter
 //= require router
-//= require jquery.ui.all
+//= require jquery.ui.slider
 //= require_tree ../app
 //= require_tree ./initializers
 
