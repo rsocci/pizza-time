@@ -1,19 +1,17 @@
-<div id="wrapper">
-  <h1>Pizza Time!</h1>
+<h1>Pizza Time!</h1>
 
-  <label id="guest-number">Number of guests: {{guestCount}} </label>
-  {{input value=guestCount type='range' min='0' max='200'}}
+<label id="guest-number">Number of guests: {{guestCount}} </label>
+{{input value=guestCount type='range' min='0' max='200' id='slider'}}
 
-  <div id="info">
-    <ul>
-      <li id="cheese">Cheese: {{cheeseAmount}}</li>
-      <li id="pepperoni">Pepperoni: {{pepperoniAmount}}</li>
-      <li id="vegan">Vegan: {{veganAmount}}</li>
-    </ul>
-    <ul>
-      <li id="cola">Cola: {{colaAmount}}</li>
-      <li id="diet-cola">Diet Cola: {{dietColaAmount}}</li>
-      <li id="sprite">Sprite: {{spriteAmount}}</li>
-    </ul>
-  </div>
+<div id="info">
+  <ul>
+    <li id="cheese">Cheese: {{cheeseAmount}}</li>
+    <li id="pepperoni">Pepperoni: {{pepperoniAmount}}</li>
+    <li id="vegan">Vegan: {{veganAmount}}</li>
+  </ul>
+  <ul>
+    <li id="cola">Cola: {{colaAmount}}</li>
+    <li id="diet-cola">Diet Cola: {{dietColaAmount}}</li>
+    <li id="sprite">Sprite: {{spriteAmount}}</li>
+  </ul>
 </div>
