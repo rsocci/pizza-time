@@ -11,4 +11,3 @@ group :doc do
 end
 
 gem 'ember-appkit-rails'
-gem 'jquery-ui-rails'
