@@ -4,7 +4,13 @@ export default Ember.Controller.extend({
   }.property('guestCount'),
 
   veganAmount: function() {
-    return Math.floor(this.get('numberPizzas') * 0.1);
+    if (this.get('guestCount') < 6) {
+      return 0;
+    } else if (this.get('guestCount') < 35) {
+      return 1;
+    } else {
+      return Math.ceil(this.get('numberPizzas') * 0.1);
+    }
   }.property('numberPizzas', 'guestCount'),
 
   cheeseAmount: function() {
