@@ -1,4 +1,8 @@
 export default Ember.Controller.extend({
+  pizzaCount: function() {
+    return  Math.ceil(this.get('guestCount') * 3 / 8);
+  }.property('guestCount'),
+
   veganAmount: function() {
     if (this.get('guestCount') < 6) {
       return 0;
@@ -10,18 +14,18 @@ export default Ember.Controller.extend({
   }.property('guestCount'),
 
   cheeseAmount: function() {
-    if (this.get('guestCount') < 9 && this.get('guestCount') > 0) {
+    if (this.get('guestCount') > 5 && this.get('guestCount') < 9) {
       return 1;
     } else {
-      return Math.ceil(this.get('guestCount') * 0.1);
+      return Math.round(this.get('pizzaCount') * 0.55);
     }
   }.property('guestCount'),
 
   pepperoniAmount: function() {
-    if (this.get('guestCount') < 9 && this.get('guestCount') > 0) {
+    if (this.get('guestCount') > 5 && this.get('guestCount') < 9) {
       return 1;
     } else {
-      return Math.ceil(this.get('guestCount') * 0.08);
+      return this.get('pizzaCount') - this.get('cheeseAmount') - this.get('veganAmount');
     }
   }.property('guestCount'),
 
