@@ -1,7 +1,9 @@
 <h1 class="pizza-logo">{{#pizza-time}}Pizza Time!{{/pizza-time}}</h1>
 
 <label id="guest-number">Number of guests: {{guestCount}} </label>
-{{input value=guestCount type='range' min='0' max='200' id='slider'}}
+<div id="guest-count-slider">
+  {{input value=guestCount type='range' min='0' max='200' id='slider'}}
+</div>
 
 <div id="info">
   <ul>
