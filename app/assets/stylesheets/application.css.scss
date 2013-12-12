@@ -34,6 +34,9 @@ h1 {
 }
 
 li {
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
   padding-left: 10px;
   font-size: 30px;
   font-weight: bold;
@@ -41,7 +44,11 @@ li {
 }
 
 #guest-number {
-  font-size: 20px;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-weight: bold;
+  font-size: 30px;
   padding-left: 50px;
 }
 
