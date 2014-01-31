@@ -1,22 +1,42 @@
 <h1 class="pizza-logo">{{#blink-away_component}}Pizza Time!{{/blink-away_component}}</h1>
 
-<label id="guest-number">Number of guests: {{guestCount}} </label>
-<div id="guest-count-slider">
+<div id='main'>
+  <h1>Number of guests: {{guestCount}}</h1>
   {{input value=guestCount type='range' min='0' max='200' id='slider'}}
-</div>
 
-<div id="info">
+  <div id='search'>
+    <h3 class='search-label'>Search for your Meetup group:</h3>
+    {{input value=queryString action='searchGroups' id='search-field'}}
+  </div>
+
   <ul>
-    <li>Cheese: {{cheeseAmount}}</li>
-    <li>Pepperoni: {{pepperoniAmount}}</li>
-    <li>Vegan: {{veganAmount}}</li>
+    {{#if selectedGroup}}
+      <h2>{{selectedGroup.name}} - {{selectedEvent.name}}</h2>
+      <h3>Number of guests: {{selectedEvent.guestCount}}</h3>
+      <button {{action back}}>Back</button>
+    {{else}}
+      {{#each group in foundGroups}}
+        <li>
+          <button {{action 'selectGroup' group}}>{{group.name}}</button>
+        </li>
+      {{/each}}
+    {{/if}}
   </ul>
-  <ul>
-    <li>Cola: {{colaAmount}}</li>
-    <li>Diet Cola: {{dietColaAmount}}</li>
-    <li>Sprite: {{spriteAmount}}</li>
-  </ul>
+
+  <div>
+    <ul>
+      <li>Cheese: {{cheeseAmount}}</li>
+      <li>Pepperoni: {{pepperoniAmount}}</li>
+      <li>Vegan: {{veganAmount}}</li>
+    </ul>
+    <ul>
+      <li>Cola: {{colaAmount}}</li>
+      <li>Diet Cola: {{dietColaAmount}}</li>
+      <li>Sprite: {{spriteAmount}}</li>
+    </ul>
+  </div>
+
+  <footer>
+    DISCLAIMER: We are not responsible for left over pizza or not enough pizza.
+  </footer>
 </div>
-<footer>
-  DISCLAIMER: We are not responsible for left over pizza or not enough pizza.
-</footer>

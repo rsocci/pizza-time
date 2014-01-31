@@ -1,4 +1,30 @@
 export default Ember.Controller.extend({
+  actions: {
+    searchGroups: function() {
+      var _this = this;
+      var foundGroups = this.store.find('group', { queryString: this.get('queryString') });
+      foundGroups.then(function(data) {
+        _this.set('foundGroups', data);
+      });
+    },
+
+    selectGroup: function(group) {
+      var _this = this;
+      this.set('selectedGroup', group);
+      var selectedEvent = group._data.next_event;
+
+      var findEvent = this.store.find('event', selectedEvent.id);
+      findEvent.then(function(data) {
+        _this.set('selectedEvent', data);
+        _this.set('guestCount', _this.selectedEvent.get('guestCount'));
+      });
+    },
+
+    back: function() {
+      this.set('selectedGroup', '');
+      this.set('guestCount', 0);
+    }
+  },
   pizzaCount: function() {
     return  Math.ceil(this.get('guestCount') * 3 / 8);
   }.property('guestCount'),
