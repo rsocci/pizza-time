@@ -11,3 +11,5 @@ group :doc do
 end
 
 gem 'ember-appkit-rails'
+gem 'byebug'
+gem 'hashie'

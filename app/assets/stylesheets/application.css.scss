@@ -19,41 +19,60 @@ body {
   width: 600px;
 }
 
-h1 {
-  font-family: 'Lucida Casual', 'Comic Sans MS';
-  font-size: 88px;
-  text-align: center;
-}
+ul {
+  padding-left: 0px;
+  margin-top: 0px;
 
-#slider {
-  width: 500px;
-}
+  h2 {
+    margin-bottom: 0px;
+  }
 
-#guest-count-slider {
-  text-align: center;
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 li {
   color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  padding-left: 10px;
   font-size: 30px;
   font-weight: bold;
   list-style-type: none;
 }
 
-#guest-number {
+.pizza-logo {
+  height: 132px;
+  font-family: 'Lucida Casual', 'Comic Sans MS';
+  font-size: 88px;
+  text-align: center;
+}
+
+#main {
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
   color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   font-weight: bold;
-  font-size: 30px;
-  padding-left: 50px;
 }
 
-.pizza-logo {
-  height: 132px;
+#slider {
+  width: 80%;
+  display: block;
+}
+
+#search {
+  width: 47%;
+}
+.search-label {
+  margin-bottom: 0px;
+}
+
+#search-field {
+  width: 100%;
 }
 
 footer {
