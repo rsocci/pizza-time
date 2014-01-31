@@ -1,4 +1,6 @@
 class Api::V1::GroupsController < ApplicationController
+  require 'net/http'
+
   def index
     query_string = URI.escape params['queryString']
     key = ENV['meetup_key']

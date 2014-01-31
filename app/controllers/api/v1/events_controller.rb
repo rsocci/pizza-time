@@ -1,4 +1,6 @@
 class Api::V1::EventsController < ApplicationController
+  require 'net/http'
+
   def show
     event_id = params[:id]
     key = ENV['meetup_key']
