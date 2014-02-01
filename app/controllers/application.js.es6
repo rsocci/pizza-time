@@ -1,8 +1,17 @@
-export default Ember.Controller.extend({
+export default Ember.ObjectController.extend(Ember.Validations.Mixin, {
+  validations: {
+    name: {
+      presence: true
+    },
+    city: {
+      presence: true
+    }
+  },
+
   actions: {
     searchGroups: function() {
       var _this = this;
-      var foundGroups = this.store.find('group', { queryString: this.get('queryString') });
+      var foundGroups = this.store.find('group', { name: this.get('name'), city: this.get('city') });
       foundGroups.then(function(data) {
         _this.set('foundGroups', data);
       });
@@ -16,7 +25,7 @@ export default Ember.Controller.extend({
       var findEvent = this.store.find('event', selectedEvent.id);
       findEvent.then(function(data) {
         _this.set('selectedEvent', data);
-        _this.set('guestCount', _this.selectedEvent.get('guestCount'));
+        _this.set('guestCount', _this.get('selectedEvent').get('guestCount'));
       });
     },
 
@@ -73,5 +82,5 @@ export default Ember.Controller.extend({
 
   spriteAmount: function() {
     return Math.round(this.get('numberSodas') * 0.2);
-  }.property('numberSodas'),
+  }.property('numberSodas')
 });

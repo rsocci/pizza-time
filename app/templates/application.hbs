@@ -4,10 +4,12 @@
   <h1>Number of guests: {{guestCount}}</h1>
   {{input value=guestCount type='range' min='0' max='200' id='slider'}}
 
-  <div id='search'>
-    <h3 class='search-label'>Search for your Meetup group:</h3>
-    {{input value=queryString action='searchGroups' id='search-field'}}
-  </div>
+  <h3 class='search-label'>Search for your Meetup group:</h3>
+  {{#form-for controller action='searchGroups'}}
+    {{input city}}
+    {{input name label='Group'}}
+    {{submit 'Find'}}
+  {{/form-for}}
 
   <ul>
     {{#if selectedGroup}}
